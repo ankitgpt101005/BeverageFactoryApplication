@@ -3,6 +3,7 @@ package com.beverages.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.beverages.exception.InvalidOrderException;
 import com.beverages.factory.BeverageFactory;
 
 public class BeveragesFactoryTest {
@@ -16,8 +17,19 @@ public class BeveragesFactoryTest {
 
     @Test()
     public void testCaseForComplexOrder() {
-        String order = "Chai,        -milk,     -water, Mojito,-mint, Banana Smoothie, Strawberry Shake";
+        String order = "Chai, -water, -milk, Mojito,-mint, Banana Smoothie, Strawberry Shake";
         Assert.assertEquals(22.5d, beverageFactory.getTotalCostOfOrder(order), 0.0d);
     }
     
+    @Test(expected = InvalidOrderException.class)
+    public void testForNoContentOrder() {
+        String order = "";
+        Assert.assertEquals(0.0d, beverageFactory.getTotalCostOfOrder(order), 0.0d);
+    }
+    
+    @Test(expected = InvalidOrderException.class)
+    public void testOrderWithInvalidRequest() {
+        String order = "Waater,TEAA";
+        Assert.assertEquals(0.0d, beverageFactory.getTotalCostOfOrder(order), 0.0d);
+    }
 }
