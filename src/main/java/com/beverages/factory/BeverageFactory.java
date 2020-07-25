@@ -23,7 +23,7 @@ public class BeverageFactory {
 	Map<String, Double> itemRates = BeveragesContentAndPrices.getItemRates();
 
 	//      get cost of each item in order and total them
-	public double getInvoiceFromOrder(String order) {
+	public double getTotalCostOfOrder(String order) {
 		double cost = 0.0d;
 		List<String> orderItems = getItemsFromOrder(order.trim());
 		for (String item : orderItems) {
@@ -48,7 +48,7 @@ public class BeverageFactory {
 		// case: when duplicate ingredients are present in order
 		Optional<String> duplicateIngredient = itemIngredients.stream().filter(i -> Collections.frequency(itemIngredients, i) > 1).findFirst();
 		if (duplicateIngredient.isPresent())
-			throw new DuplicateIngredientException("Duplicate ingredient not allowed -> " + duplicateIngredient.get());
+			throw new DuplicateIngredientException("Duplicate ingredient are not allowed -> " + duplicateIngredient.get());
 
 		List<String> ingredients = itemIngredients.subList(1, itemIngredients.size());
 		boolean validIngredients = ingredients.stream().allMatch(t -> allIngredients.stream().anyMatch(t::contains));

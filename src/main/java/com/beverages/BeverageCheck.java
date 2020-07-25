@@ -14,11 +14,11 @@ public class BeverageCheck {
 		BeverageFactory beverageFactory = new BeverageFactory();
 
 	  // We can Modify the below contents and run the program to calculate your beverage cost
-      String order = " Chai ,-milk, -water,  Coffee, Mojito";
+      String order = " Chai ,-milk, -water, Mojito";
 
-      final double beverageCost = beverageFactory.getInvoiceFromOrder(order);
+      final double beverageCost = beverageFactory.getTotalCostOfOrder(order);
 
-      LOGGER.info("Your total cost is ${}", beverageCost);
+      LOGGER.info("Your total cost of beverage is ${}", beverageCost);
 
 	}
 
