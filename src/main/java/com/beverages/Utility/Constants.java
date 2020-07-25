@@ -16,11 +16,16 @@ public final class Constants {
     public static final String SODA = "soda";
     public static final String MINT = "mint";
 
-    // Price constants for base ingredients
+    // Price constants for base ingredients rates
     public static final Double STRAWBERRIES_PRICE = 5.0d;
     public static final Double BANANA_PRICE = 4.0d;
     public static final Double TEA_LEAVES_PRICE = 2.0d;
     public static final Double COFFEE_BEANS_PRICE = 3.0d;
     public static final Double LEMON_PRICE = 5.5d;
+    public static final Double MILK_PRICE = 1.0d;
+    public static final Double SUGAR_PRICE = 0.5d;
+    public static final Double SODA_PRICE = 0.5d;
+    public static final Double MINT_PRICE = 0.5d;
+    public static final Double WATER_PRICE = 0.5d;
 
 }
